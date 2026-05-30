@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: spotngo-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
+    envVars:
+      - key: ADMIN_EMAIL
+        value: admin@gmail.com
+      - key: ADMIN_PASSWORD
+        generateValue: true
+    disk:
+      name: spotngo-db
+      mountPath: /opt/render/project/src/instance
+      sizeGB: 1
