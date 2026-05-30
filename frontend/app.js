@@ -321,8 +321,12 @@ function setupEventHandlers() {
     document.getElementById("btn-back-history").addEventListener("click", () => {
         document.getElementById("history-modal").classList.add("hidden");
     });
-    document.getElementById("btn-clear-history").addEventListener("click", () => {
-        localStorage.removeItem("spotNgoHistory");
+    document.getElementById("btn-clear-history").addEventListener("click", async () => {
+        try {
+            await fetch(`${API_BASE_URL}/history`, { method: 'DELETE' });
+        } catch(e) {
+            localStorage.removeItem("spotNgoHistory"); // fallback
+        }
         loadSearchHistory();
     });
 
@@ -1634,12 +1638,30 @@ function initAdminPanel() {
     });
 }
 
-function attemptLogin() {
-    const id = document.getElementById('admin-id-input').value.trim();
-    const pw = document.getElementById('admin-pw-input').value;
+async function attemptLogin() {
+    const id    = document.getElementById('admin-id-input').value.trim();
+    const pw    = document.getElementById('admin-pw-input').value;
     const errEl = document.getElementById('login-error');
 
-    if (id === ADMIN_ID && pw === ADMIN_PW) {
+    // Try backend authentication first
+    let backendOk = false;
+    try {
+        const res  = await fetch(`${API_BASE_URL}/admin/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: id, password: pw })
+        });
+        const data = await res.json();
+        if (data.success) {
+            backendOk = true;
+            sessionStorage.setItem('spotNgoAdminToken', data.token || '');
+        }
+    } catch(e) {
+        // Backend offline – fall back to hardcoded credentials
+        backendOk = (id === ADMIN_ID && pw === ADMIN_PW);
+    }
+
+    if (backendOk) {
         isAdminLoggedIn = true;
         errEl.classList.add('hidden');
         document.getElementById('admin-login-modal').classList.add('hidden');
@@ -2082,27 +2104,40 @@ function saveSearchToHistory() {
     const endNode = nodesDict[endNodeId];
     if (!startNode || !endNode) return;
     
-    const routeName = `${startNode.label} to ${endNode.label}`;
-    const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    
-    let history = JSON.parse(localStorage.getItem("spotNgoHistory") || "[]");
-    
-    // Add to beginning, max 10 items
-    history.unshift({ route: routeName, time: timestamp, from: startNodeId, to: endNodeId });
-    if (history.length > 10) history = history.slice(0, 10);
-    
-    localStorage.setItem("spotNgoHistory", JSON.stringify(history));
+    // History is now saved automatically by the backend /api/find-path endpoint.
+    // This function is kept as a no-op for compatibility.
 }
 
-function loadSearchHistory() {
+async function loadSearchHistory() {
     const listContainer = document.getElementById("history-list");
-    const history = JSON.parse(localStorage.getItem("spotNgoHistory") || "[]");
-    
+    listContainer.innerHTML = '<p class="empty-msg">Loading…</p>';
+
+    let history = [];
+    try {
+        const res = await fetch(`${API_BASE_URL}/history?limit=20`);
+        if (res.ok) {
+            const rows = await res.json();
+            history = rows.map(r => ({
+                route: `${r.from_label} → ${r.to_label}`,
+                time:  r.searched_at
+                           ? new Date(r.searched_at + 'Z').toLocaleString([], {hour:'2-digit', minute:'2-digit', month:'short', day:'numeric'})
+                           : '',
+                from:  r.from_id,
+                to:    r.to_id,
+                distance: r.distance_m,
+                walk:     r.walk_min
+            }));
+        }
+    } catch(e) {
+        // Fallback to localStorage if backend is offline
+        history = JSON.parse(localStorage.getItem("spotNgoHistory") || "[]");
+    }
+
     if (history.length === 0) {
         listContainer.innerHTML = '<p class="empty-msg">No recent searches found.</p>';
         return;
     }
-    
+
     listContainer.innerHTML = "";
     history.forEach(item => {
         const div = document.createElement("div");
@@ -2112,19 +2147,19 @@ function loadSearchHistory() {
                 <i data-lucide="route"></i>
                 <span>${item.route}</span>
             </div>
-            <div class="history-time">${item.time}</div>
+            <div class="history-time">${item.time}${item.distance ? ` · ${item.distance}m` : ''}</div>
         `;
-        
+
         // Make it clickable to instantly search again
         div.addEventListener("click", () => {
             document.getElementById("start-node").value = item.from;
             document.getElementById("end-node").value = item.to;
             startNodeId = item.from;
             endNodeId = item.to;
-            
+
             // Close modal and compute
             document.getElementById("history-modal").classList.add("hidden");
-            
+
             // If we are on landing page, switch to map
             if (!document.getElementById("landing-page").classList.contains("hidden")) {
                 document.getElementById("landing-page").classList.add("hidden");
