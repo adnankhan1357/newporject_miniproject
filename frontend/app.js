@@ -33,7 +33,7 @@ let gridEnabled = true;
 let isLightTheme = false;
 
 // Backend Connection Endpoint
-const API_BASE_URL = https://newproject-miniproject.onrender.com
+const API_BASE_URL = "http://localhost:5000/api";
 
 // Fallback JSON Map Data in case the backend Flask API is offline
 // (Extracted from c:\mini_project\college_map.json to provide seamless execution)
