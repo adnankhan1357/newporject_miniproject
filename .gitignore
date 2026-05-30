@@ -10,6 +10,12 @@ venv/
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Database (auto-created at runtime, do not commit)
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
 # Local IDE configuration
 .vscode/
 .idea/
