@@ -1,0 +1,295 @@
+Nodes added = 70 :-
+
+ext_f0_gate_number_9  |  college_gate  |  (300, 300)  |  Floor 0  |  outside
+
+ext_f0_j1  |  junction  |  (310, 300)  |  Floor 0  |  outside
+
+ext_f0_wash_basin  |  unknown  |  (320, 300)  |  Floor 0  |  outside
+
+cme_f0_cme_entrance  |  building_entrance  |  (425, 300)  |  Floor 0  |  CME
+
+cme_f0_registrar_office  |  office_room  |  (425, 340)  |  Floor 0  |  CME
+
+cme_f0_male_washroom  |  unknown  |  (405, 340)  |  Floor 0  |  CME
+
+cme_f0_water_filter  |  unknown  |  (425, 350)  |  Floor 0  |  CME
+
+cme_f0_lift_stairs  |  stairs_lift  |  (450, 350)  |  Floor 0  |  CME
+
+cme_f0_iqac  |  office_room  |  (425, 400)  |  Floor 0  |  CME
+
+cme_f0_tpo_office_placement_cell  |  office_room  |  (425, 420)  |  Floor 0  |  CME
+
+cme_f0_guards_desk  |  unknown  |  (445, 420)  |  Floor 0  |  CME
+
+cme_f0_cme_exit  |  building_entrance  |  (535, 450)  |  Floor 0  |  CME
+
+cme_f0_cme_006  |  classroom  |  (425, 495)  |  Floor 0  |  CME
+
+cme_f0_cme_004  |  classroom  |  (430, 495)  |  Floor 0  |  CME
+
+cme_f0_language_lab  |  lab  |  (425, 620)  |  Floor 0  |  CME
+
+cme_f0_fluid_mechanics_lab  |  lab  |  (425, 665)  |  Floor 0  |  CME
+
+cme_f0_cme_008  |  unknown  |  (425, 675)  |  Floor 0  |  CME
+
+cme_f0_service_room  |  unknown  |  (425, 725)  |  Floor 0  |  CME
+
+cme_f0_female_washroom  |  unknown  |  (425, 735)  |  Floor 0  |  CME
+
+cme_f0_stairs  |  stairs_lift  |  (445, 725)  |  Floor 0  |  CME
+
+cme_f0_administrative_office  |  office_room  |  (505, 725)  |  Floor 0  |  CME
+
+ext_f0_j2  |  junction  |  (575, 300)  |  Floor 0  |  outside
+
+ext_f0_j6  |  junction  |  (575, 450)  |  Floor 0  |  outside
+
+ext_f0_j3  |  junction  |  (725, 300)  |  Floor 0  |  outside
+
+cb_f0_cb_entrance  |  building_entrance  |  (725, 450)  |  Floor 0  |  CB
+
+cb_f0_library  |  hall  |  (705, 450)  |  Floor 0  |  CB
+
+cb_f0_placement_hall  |  hall  |  (745, 450)  |  Floor 0  |  CB
+
+cb_f0_entry_gate_1  |  entry_gate  |  (795, 490)  |  Floor 0  |  CB
+
+cb_f0_entry_gate_2  |  entry_gate  |  (695, 490)  |  Floor 0  |  CB
+
+cb_f0_executive_hall  |  hall  |  (745, 490)  |  Floor 0  |  CB
+
+cb_f0_male_washroom  |  unknown  |  (805, 490)  |  Floor 0  |  CB
+
+cb_f0_female_washroom  |  unknown  |  (555, 490)  |  Floor 0  |  CB
+
+cb_f0_sv_auditorium  |  hall  |  (825, 490)  |  Floor 0  |  CB
+
+cb_f0_lift_stairs_1  |  stairs_lift  |  (805, 470)  |  Floor 0  |  CB
+
+cb_f0_colonel_sirs_office  |  office_room  |  (675, 490)  |  Floor 0  |  CB
+
+cb_f0_liftstairs_2  |  stairs_lift  |  (675, 470)  |  Floor 0  |  CB
+
+cb_f0_cb_exit  |  building_entrance  |  (535, 490)  |  Floor 0  |  CB
+
+ext_f0_the_heritage_academy_building  |  junction  |  (875, 300)  |  Floor 0  |  outside
+
+ext_f0_sac_ground  |  unknown  |  (1000, 300)  |  Floor 0  |  outside
+
+ext_f0_hostel_road_junction  |  junction  |  (1000, 250)  |  Floor 0  |  outside
+
+ext_f0_cheap_store  |  unknown  |  (1250, 250)  |  Floor 0  |  outside
+
+ext_f0_30_bigha_ground  |  unknown  |  (1250, 150)  |  Floor 0  |  outside
+
+ext_f0_labours_canteen  |  unknown  |  (1225, 150)  |  Floor 0  |  outside
+
+ext_f0_college_canteen  |  unknown  |  (1250, 75)  |  Floor 0  |  outside
+
+ict_f0_ict_entrance  |  building_entrance  |  (875, 450)  |  Floor 0  |  ICT
+
+ict_f0_guards_desk  |  unknown  |  (885, 450)  |  Floor 0  |  ICT
+
+ict_f0_liftstairs  |  stairs_lift  |  (900, 450)  |  Floor 0  |  ICT
+
+ict_f0_ict_003_ieee_electron_devices_society  |  office_room  |  (920, 450)  |  Floor 0  |  ICT
+
+ict_f0_ict_002_microprocessor_and_microcontroller_lab  |  lab  |  (920, 420)  |  Floor 0  |  ICT
+
+ict_f0_ict_001_circuit_and_network_lab  |  lab  |  (915, 420)  |  Floor 0  |  ICT
+
+ict_f0_faculty_washroom  |  unknown  |  (920, 490)  |  Floor 0  |  ICT
+
+ict_f0_ict_004  |  unknown  |  (920, 515)  |  Floor 0  |  ICT
+
+ict_f0_ict_009_electrical_and_electronics_measurement_lab  |  lab  |  (915, 515)  |  Floor 0  |  ICT
+
+ict_f0_ict_005_digital_electronics_lab  |  lab  |  (920, 590)  |  Floor 0  |  ICT
+
+ict_f0_ict_008  |  unknown  |  (915, 590)  |  Floor 0  |  ICT
+
+ict_f0_male_washroom  |  unknown  |  (920, 630)  |  Floor 0  |  ICT
+
+ict_f0_female_washroom  |  unknown  |  (920, 640)  |  Floor 0  |  ICT
+
+ict_f0_stairs  |  stairs_lift  |  (900, 640)  |  Floor 0  |  ICT
+
+ext_f0_basketball_court  |  unknown  |  (725, 225)  |  Floor 0  |  outside
+
+ext_f0_school_cricket_ground  |  unknown  |  (725, 175)  |  Floor 0  |  outside
+
+ext_f0_j5  |  junction  |  (725, -225)  |  Floor 0  |  outside
+
+ext_f0_under_construction_building  |  unknown  |  (310, 0)  |  Floor 0  |  outside
+
+ext_f0_heritage_school_canteen  |  unknown  |  (310, -250)  |  Floor 0  |  outside
+
+ext_f0_j4  |  junction  |  (310, -450)  |  Floor 0  |  outside
+
+ext_f0_heritage_school_entry_gate  |  entry_gate  |  (410, -450)  |  Floor 0  |  outside
+
+ext_f0_fee_department  |  office_room  |  (410, -475)  |  Floor 0  |  outside
+
+ext_f0_heritage_law_college  |  unknown  |  (310, -500)  |  Floor 0  |  outside
+
+ext_f0_punjab_national_bank  |  unknown  |  (310, -700)  |  Floor 0  |  outside
+
+ext_f0_gate_number_3  |  college_gate  |  (310, -850)  |  Floor 0  |  outside
+
+ext_f0_atm  |  unknown  |  (260, -850)  |  Floor 0  |  outside
+
+
+
+
+
+Edges added = 74:-
+
+ext_f0_gate_number_9  ↔  ext_f0_j1  |  weight: 2
+
+ext_f0_j1  ↔  ext_f0_wash_basin  |  weight: 2
+
+ext_f0_wash_basin  ↔  cme_f0_cme_entrance  |  weight: 85
+
+cme_f0_cme_entrance  ↔  ext_f0_j2  |  weight: 30
+
+ext_f0_j2  ↔  ext_f0_j6  |  weight: 30
+
+ext_f0_j6  ↔  cme_f0_cme_exit  |  weight: 8
+
+cme_f0_cme_entrance  ↔  cme_f0_registrar_office  |  weight: 8
+
+cme_f0_registrar_office  ↔  cme_f0_male_washroom  |  weight: 4
+
+cme_f0_registrar_office  ↔  cme_f0_water_filter  |  weight: 2
+
+cme_f0_water_filter  ↔  cme_f0_lift_stairs  |  weight: 5
+
+cme_f0_water_filter  ↔  cme_f0_iqac  |  weight: 10
+
+cme_f0_iqac  ↔  cme_f0_tpo_office_placement_cell  |  weight: 4
+
+cme_f0_tpo_office_placement_cell  ↔  cme_f0_guards_desk  |  weight: 4
+
+cme_f0_guards_desk  ↔  cme_f0_cme_exit  |  weight: 10
+
+cme_f0_tpo_office_placement_cell  ↔  cme_f0_cme_006  |  weight: 15
+
+cme_f0_cme_006  ↔  cme_f0_cme_004  |  weight: 1
+
+cme_f0_cme_006  ↔  cme_f0_language_lab  |  weight: 25
+
+cme_f0_language_lab  ↔  cme_f0_fluid_mechanics_lab  |  weight: 3
+
+cme_f0_fluid_mechanics_lab  ↔  cme_f0_cme_008  |  weight: 2
+
+cme_f0_cme_008  ↔  cme_f0_service_room  |  weight: 8
+
+cme_f0_service_room  ↔  cme_f0_female_washroom  |  weight: 2
+
+cme_f0_service_room  ↔  cme_f0_stairs  |  weight: 4
+
+cme_f0_stairs  ↔  cme_f0_administrative_office  |  weight: 12
+
+ext_f0_j2  ↔  ext_f0_j3  |  weight: 30
+
+ext_f0_j3  ↔  cb_f0_cb_entrance  |  weight: 30
+
+cb_f0_cb_entrance  ↔  cb_f0_library  |  weight: 4
+
+cb_f0_library  ↔  ext_f0_j6  |  weight: 26
+
+cb_f0_cb_entrance  ↔  cb_f0_placement_hall  |  weight: 4
+
+cb_f0_cb_entrance  ↔  cb_f0_entry_gate_1  |  weight: 16
+
+cb_f0_cb_entrance  ↔  cb_f0_entry_gate_2  |  weight: 16
+
+cb_f0_entry_gate_1  ↔  cb_f0_male_washroom  |  weight: 2
+
+cb_f0_male_washroom  ↔  cb_f0_lift_stairs_1  |  weight: 4
+
+cb_f0_male_washroom  ↔  cb_f0_sv_auditorium  |  weight: 4
+
+cb_f0_entry_gate_1  ↔  cb_f0_executive_hall  |  weight: 10
+
+cb_f0_executive_hall  ↔  cb_f0_entry_gate_2  |  weight: 10
+
+cb_f0_entry_gate_2  ↔  cb_f0_colonel_sirs_office  |  weight: 4
+
+cb_f0_colonel_sirs_office  ↔  cb_f0_liftstairs_2  |  weight: 4
+
+cb_f0_colonel_sirs_office  ↔  cb_f0_female_washroom  |  weight: 24
+
+cb_f0_female_washroom  ↔  cb_f0_cb_exit  |  weight: 4
+
+ext_f0_j3  ↔  ext_f0_the_heritage_academy_building  |  weight: 30
+
+cb_f0_placement_hall  ↔  ict_f0_ict_entrance  |  weight: 26
+
+ext_f0_the_heritage_academy_building  ↔  ext_f0_sac_ground  |  weight: 25
+
+ext_f0_sac_ground  ↔  ext_f0_hostel_road_junction  |  weight: 10
+
+ext_f0_hostel_road_junction  ↔  ext_f0_cheap_store  |  weight: 50
+
+ext_f0_cheap_store  ↔  ext_f0_30_bigha_ground  |  weight: 20
+
+ext_f0_30_bigha_ground  ↔  ext_f0_labours_canteen  |  weight: 5
+
+ext_f0_30_bigha_ground  ↔  ext_f0_college_canteen  |  weight: 15
+
+ext_f0_the_heritage_academy_building  ↔  ict_f0_ict_entrance  |  weight: 30
+
+ict_f0_ict_entrance  ↔  ict_f0_guards_desk  |  weight: 2
+
+ict_f0_guards_desk  ↔  ict_f0_liftstairs  |  weight: 3
+
+ict_f0_liftstairs  ↔  ict_f0_ict_003_ieee_electron_devices_society  |  weight: 4
+
+ict_f0_ict_003_ieee_electron_devices_society  ↔  ict_f0_ict_002_microprocessor_and_microcontroller_lab  |  weight: 6
+
+ict_f0_ict_002_microprocessor_and_microcontroller_lab  ↔  ict_f0_ict_001_circuit_and_network_lab  |  weight: 1
+
+ict_f0_ict_003_ieee_electron_devices_society  ↔  ict_f0_faculty_washroom  |  weight: 8
+
+ict_f0_faculty_washroom  ↔  ict_f0_ict_004  |  weight: 5
+
+ict_f0_ict_004  ↔  ict_f0_ict_009_electrical_and_electronics_measurement_lab  |  weight: 1
+
+ict_f0_ict_004  ↔  ict_f0_ict_005_digital_electronics_lab  |  weight: 15
+
+ict_f0_ict_005_digital_electronics_lab  ↔  ict_f0_ict_008  |  weight: 1
+
+ict_f0_ict_005_digital_electronics_lab  ↔  ict_f0_male_washroom  |  weight: 8
+
+ict_f0_male_washroom  ↔  ict_f0_female_washroom  |  weight: 2
+
+ict_f0_female_washroom  ↔  ict_f0_stairs  |  weight: 4
+
+ext_f0_under_construction_building  ↔  ext_f0_heritage_school_canteen  |  weight: 50
+
+ext_f0_heritage_school_canteen  ↔  ext_f0_j4  |  weight: 40
+
+ext_f0_j1  ↔  ext_f0_under_construction_building  |  weight: 80
+
+ext_f0_j4  ↔  ext_f0_heritage_school_entry_gate  |  weight: 20
+
+ext_f0_heritage_school_entry_gate  ↔  ext_f0_fee_department  |  weight: 5
+
+ext_f0_j4  ↔  ext_f0_heritage_law_college  |  weight: 10
+
+ext_f0_heritage_law_college  ↔  ext_f0_punjab_national_bank  |  weight: 40
+
+ext_f0_punjab_national_bank  ↔  ext_f0_gate_number_3  |  weight: 30
+
+ext_f0_gate_number_3  ↔  ext_f0_atm  |  weight: 10
+
+ext_f0_j3  ↔  ext_f0_basketball_court  |  weight: 15
+
+ext_f0_basketball_court  ↔  ext_f0_school_cricket_ground  |  weight: 10
+
+ext_f0_school_cricket_ground  ↔  ext_f0_j5  |  weight: 80
+
+ext_f0_j5  ↔  ext_f0_gate_number_3  |  weight: 80

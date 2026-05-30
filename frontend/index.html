@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotNgo - Smart Campus Indoor Navigator</title>
+    <meta name="description" content="Smart indoor campus navigation system with A* pathfinding, interactive map, and admin management panel.">
+
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===================== LANDING PAGE ===================== -->
+    <div id="landing-page" class="landing-page">
+        <!-- Hero wrapper to capture 100vh layout -->
+        <div class="landing-hero-wrapper">
+            <nav class="top-nav">
+                <div class="nav-brand">
+                    <i data-lucide="navigation" class="brand-icon"></i>
+                    <span class="brand-text">spotNgo</span>
+                </div>
+                <div class="nav-links">
+                    <button class="nav-btn" id="btn-about"><i data-lucide="info"></i> About</button>
+                    <button class="nav-btn" id="btn-history"><i data-lucide="history"></i> Search History</button>
+                    <button class="nav-btn" id="btn-help"><i data-lucide="help-circle"></i> Help</button>
+                    <button class="nav-btn" id="btn-landing-admin-login"><i data-lucide="shield"></i> Admin Access</button>
+                </div>
+            </nav>
+            
+            <div class="hero-section">
+                <div class="hero-logo">
+                    <i data-lucide="navigation"></i>
+                </div>
+                <h1 class="hero-title">spotNgo</h1>
+                <p class="hero-subtitle">Heritage Institute of Technology Campus Navigator</p>
+                <button id="btn-start-nav" class="btn-start-nav">
+                    <i data-lucide="compass"></i> Start Navigating
+                </button>
+                
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator" id="btn-scroll-down">
+                    <span>Explore Features</span>
+                    <i data-lucide="chevron-down" class="scroll-arrow-icon"></i>
+                </div>
+            </div>
+            
+            <div class="hero-bg-overlay"></div>
+        </div>
+
+        <!-- ===================== NEW SECTIONS IN FOOTER ===================== -->
+        <div class="landing-scroll-content">
+            
+            <!-- --- How To Use Section --- -->
+            <section id="help-section" class="landing-section help-section-landing">
+                <div class="section-header-landing">
+                    <div class="section-badge-landing"><i data-lucide="compass"></i> Guide</div>
+                    <h2 class="section-title-landing">How to Navigate spotNgo</h2>
+                    <p class="section-desc-landing">Get step-by-step paths with high-tech visual cues and A* intelligent routing.</p>
+                </div>
+                
+                <div class="guide-grid">
+                    <!-- Step 1 -->
+                    <div class="guide-card">
+                        <div class="guide-num">01</div>
+                        <div class="guide-icon-box">
+                            <i data-lucide="map" class="guide-icon"></i>
+                        </div>
+                        <h3>Explore Campus</h3>
+                        <p>Drag the blueprint map to pan around. Scroll with mouse wheel or use controls to zoom dynamically on multi-floor zones.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="guide-card">
+                        <div class="guide-num">02</div>
+                        <div class="guide-icon-box">
+                            <i data-lucide="circle-dot" class="guide-icon text-green"></i>
+                        </div>
+                        <h3>Set Departure</h3>
+                        <p><strong>Double-Click</strong> any node or room on the map to set your starting location. You can also select it via the search panel.</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="guide-card">
+                        <div class="guide-num">03</div>
+                        <div class="guide-icon-box">
+                            <i data-lucide="map-pin" class="guide-icon text-pink"></i>
+                        </div>
+                        <h3>Set Destination</h3>
+                        <p><strong>Right-Click</strong> any node to set your destination, or use the drop-down selector to choose your target classroom or lab.</p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="guide-card">
+                        <div class="guide-num">04</div>
+                        <div class="guide-icon-box">
+                            <i data-lucide="route" class="guide-icon text-cyan"></i>
+                        </div>
+                        <h3>Laser Flow Route</h3>
+                        <p>Click <strong>Find Path</strong>. Follow the glowing neon laser line and step-by-step directions to navigate buildings and floors.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- --- About Us & Team Section --- -->
+            <section id="about-section" class="landing-section about-section-landing">
+                <div class="section-header-landing">
+                    <div class="section-badge-landing"><i data-lucide="users"></i> Project</div>
+                    <h2 class="section-title-landing">About the Project</h2>
+                    <p class="section-desc-landing">spotNgo was created to solve indoor routing complexities across the Heritage Institute of Technology campus, utilizing advanced mathematical graphs and modern web visual systems.</p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Tech Stack Details -->
+                    <div class="about-card-info">
+                        <h3>Why spotNgo?</h3>
+                        <p>Large campus infrastructures with multiple buildings (Central Block, CME, ICT) and stacked floors can make navigating complex hallways, stairs, and laboratories difficult for new students, faculty, and visitors.</p>
+                        <p>This application implements an advanced <strong>A* Pathfinding Algorithm</strong> with integrated distance weighting and floor-change penalties. Our responsive visual vector engine renders high-performance laser guidance overlays directly onto your screen.</p>
+                        
+                        <div class="tech-badge-container">
+                            <span class="tech-tag"><i data-lucide="cpu"></i> A* Engine</span>
+                            <span class="tech-tag"><i data-lucide="code-2"></i> Python Flask</span>
+                            <span class="tech-tag"><i data-lucide="layers"></i> Multi-Floor Map</span>
+                            <span class="tech-tag"><i data-lucide="sparkles"></i> Glassmorphism</span>
+                        </div>
+                    </div>
+
+                    <!-- Team Members Column -->
+                    <div class="team-column">
+                        <h3>Core Development Team</h3>
+                        <div class="team-list">
+                            <div class="team-member-card">
+                                <div class="member-avatar">👥</div>
+                                <div class="member-info">
+                                    <h4>Collaborative Engineering Group</h4>
+                                    <span class="member-role">Software Engineers &amp; Designers</span>
+                                    <p style="margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #fff; line-height: 1.6;">
+                                        Tapasya Basu, Shaily Kumari, Tapabrata Dutta, Md Numan Ashraf, Qaem Hussain Rizvi, Ankit Kunwar
+                                    </p>
+                                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+                                        This highly collaborative team worked collectively across all domains of the project to research campus geography, design the spatial coordinate system, build the bidirectional graph model, program the A* pathfinding algorithm, and build this interactive multi-floor cyber-blueprint navigator. Their shared dedication turned complex campus hallways and multi-floor structures into a seamless graphical guidance experience.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- --- Sleek High Tech Footer --- -->
+            <footer class="landing-page-footer">
+                <div class="footer-brand">
+                    <i data-lucide="navigation"></i>
+                    <span>spotNgo</span>
+                </div>
+                <p class="footer-copy">&copy; 2026 spotNgo project. Heritage Institute of Technology campus indoor guide system.</p>
+                <div class="footer-links">
+                    <a href="#help-section">Guide</a>
+                    <a href="#about-section">About Project</a>
+                    <a href="#" onclick="document.getElementById('landing-page').scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top</a>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- ===================== MAIN APP ===================== -->
+    <div id="app-container" class="app-container hidden">
+
+        <!-- ===================== SIDEBAR ===================== -->
+        <aside class="sidebar">
+            <!-- App Header -->
+            <header class="app-header">
+                <div class="logo-area">
+                    <button id="btn-back-home" class="btn-back-home" title="Back to Home"><i data-lucide="arrow-left"></i></button>
+                    <div class="logo-icon">
+                        <i data-lucide="navigation"></i>
+                    </div>
+                    <div>
+                        <h1>spotNgo</h1>
+                        <span class="subtitle">Indoor Campus Navigator</span>
+                    </div>
+                </div>
+                <div class="status-indicator" id="connection-status">
+                    <span class="status-dot pulsing"></span>
+                    <span class="status-text">Connecting...</span>
+                </div>
+            </header>
+
+            <!-- Route Planner -->
+            <section class="control-card">
+                <h2 class="card-title"><i data-lucide="map-pin"></i> Route Planner</h2>
+
+                <div class="input-group">
+                    <label for="start-node"><i data-lucide="circle-dot" class="text-green"></i> Start Point</label>
+                    <div class="select-wrapper">
+                        <select id="start-node" class="styled-select">
+                            <option value="">-- Choose Starting Point --</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="select-arrow"></i>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="end-node"><i data-lucide="map-pin" class="text-pink"></i> Destination</label>
+                    <div class="select-wrapper">
+                        <select id="end-node" class="styled-select">
+                            <option value="">-- Choose Destination --</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="select-arrow"></i>
+                    </div>
+                </div>
+
+                <!-- Quick Presets -->
+                <div class="presets-section">
+                    <span class="section-label">Quick Presets</span>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-from="ext_f0_gate_number_9" data-to="cb_f0_library">Gate 9 &rarr; Library</button>
+                        <button class="preset-btn" data-from="cme_f0_cme_entrance" data-to="cme_f0_administrative_office">CME &rarr; Admin</button>
+                        <button class="preset-btn" data-from="cb_f0_placement_hall" data-to="ict_f0_ict_002_microprocessor_and_microcontroller_lab">CB &rarr; µC Lab</button>
+                        <button class="preset-btn" data-from="ext_f0_gate_number_3" data-to="cb_f0_sv_auditorium">Gate 3 &rarr; SV Hall</button>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-find-path" class="btn btn-primary">
+                        <i data-lucide="route"></i> Find Path
+                    </button>
+                    <button id="btn-clear" class="btn btn-secondary">
+                        <i data-lucide="trash-2"></i> Clear
+                    </button>
+                </div>
+            </section>
+
+            <!-- Path Results (hidden until route found) -->
+            <section id="path-results" class="control-card hidden">
+                <h2 class="card-title"><i data-lucide="info"></i> Route Details</h2>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-val" id="val-distance">0m</span>
+                        <span class="metric-lbl">Distance</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val" id="val-time">0 min</span>
+                        <span class="metric-lbl">Walk Time</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val" id="val-floors">0</span>
+                        <span class="metric-lbl">Floor Changes</span>
+                    </div>
+                </div>
+                <div class="directions-section">
+                    <h3 class="card-subtitle"><i data-lucide="milestone"></i> Step-by-Step Directions</h3>
+                    <div class="directions-list" id="directions-list"></div>
+                </div>
+            </section>
+
+            <!-- Sidebar Footer with Admin Login -->
+            <footer class="sidebar-footer">
+                <div class="tech-badges">
+                    <div class="tech-badge">A* Algorithm</div>
+                    <div class="tech-badge">Python Flask</div>
+                    <div class="tech-badge">HTML5 Canvas</div>
+                </div>
+                <button id="btn-admin-login" class="btn-admin-access">
+                    <i data-lucide="shield"></i> Admin Access
+                </button>
+            </footer>
+        </aside>
+
+        <!-- ===================== MAP VIEWPORT ===================== -->
+        <main class="map-viewport">
+            <canvas id="map-canvas"></canvas>
+
+            <!-- Floor Selector -->
+            <div class="floor-selector-overlay">
+                <span class="overlay-label">Floor View</span>
+                <div class="floor-tabs" id="floor-tabs">
+                    <button class="floor-tab active" data-floor="0">Floor 0 (GF)</button>
+                    <button class="floor-tab" data-floor="1">Floor 1 (1F)</button>
+                    <button class="floor-tab" data-floor="2">Floor 2 (2F)</button>
+                </div>
+            </div>
+
+            <!-- Zoom / Pan Controls -->
+            <div class="viewport-controls">
+                <div class="pan-dpad">
+                    <button class="control-btn pan-btn" id="btn-pan-up" title="Pan Up"><i data-lucide="chevron-up"></i></button>
+                    <div class="pan-row">
+                        <button class="control-btn pan-btn" id="btn-pan-left" title="Pan Left"><i data-lucide="chevron-left"></i></button>
+                        <button class="control-btn pan-btn" id="btn-pan-right" title="Pan Right"><i data-lucide="chevron-right"></i></button>
+                    </div>
+                    <button class="control-btn pan-btn" id="btn-pan-down" title="Pan Down"><i data-lucide="chevron-down"></i></button>
+                </div>
+                <button class="control-btn" id="btn-zoom-in" title="Zoom In"><i data-lucide="zoom-in"></i></button>
+                <button class="control-btn" id="btn-zoom-out" title="Zoom Out"><i data-lucide="zoom-out"></i></button>
+                <button class="control-btn" id="btn-reset-view" title="Recenter"><i data-lucide="maximize-2"></i></button>
+                <button class="control-btn" id="btn-toggle-grid" title="Toggle Grid"><i data-lucide="grid"></i></button>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend-overlay">
+                <h4 class="legend-title">Map Legend</h4>
+                <div class="legend-grid">
+                    <div class="legend-item"><span class="legend-color node-gate"></span> Gate</div>
+                    <div class="legend-item"><span class="legend-color node-entrance"></span> Entrance</div>
+                    <div class="legend-item"><span class="legend-color node-office"></span> Office</div>
+                    <div class="legend-item"><span class="legend-color node-classroom"></span> Classroom</div>
+                    <div class="legend-item"><span class="legend-color node-lab"></span> Lab</div>
+                    <div class="legend-item"><span class="legend-color node-stairs"></span> Stairs/Lift</div>
+                    <div class="legend-item"><span class="legend-color node-hall"></span> Hall</div>
+                    <div class="legend-item"><span class="legend-color node-junction"></span> Junction</div>
+                </div>
+            </div>
+
+            <!-- Info Banner -->
+            <div class="navigation-banner" id="nav-banner">
+                <div class="banner-content">
+                    <i data-lucide="mouse-pointer-click" class="banner-icon"></i>
+                    <span id="banner-text">Double-click a node to set <strong>Start</strong>. Right-click to set <strong>Destination</strong>.</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===================== ADMIN LOGIN MODAL ===================== -->
+    <div id="admin-login-modal" class="modal-overlay hidden">
+        <div class="modal-box login-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="shield-check"></i>
+                    <h2>Admin Login</h2>
+                </div>
+                <button class="modal-close" id="btn-close-login"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="login-subtitle">Enter your administrator credentials to access the map management panel.</p>
+                <div class="form-group">
+                    <label class="form-label">Admin Email</label>
+                    <input type="text" id="admin-id-input" class="form-input" placeholder="Enter Admin Email" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="admin-pw-input" class="form-input" placeholder="Enter Password">
+                </div>
+                <div id="login-error" class="login-error hidden">
+                    <i data-lucide="alert-circle"></i> Invalid credentials. Please try again.
+                </div>
+                <button id="btn-do-login" class="btn btn-primary btn-full">
+                    <i data-lucide="log-in"></i> Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ADMIN PANEL MODAL ===================== -->
+    <div id="admin-panel-modal" class="modal-overlay hidden">
+        <div class="modal-box admin-panel-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="settings-2"></i>
+                    <h2>Map Admin Panel</h2>
+                </div>
+                <div class="admin-header-actions">
+                    <span class="admin-badge"><i data-lucide="shield-check"></i> Admin Mode</span>
+                    <button class="modal-close" id="btn-close-admin"><i data-lucide="x"></i></button>
+                </div>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="nodes"><i data-lucide="map-pin"></i> Nodes</button>
+                <button class="admin-tab" data-tab="edges"><i data-lucide="git-fork"></i> Edges</button>
+            </div>
+
+            <!-- Nodes Tab -->
+            <div id="admin-tab-nodes" class="admin-tab-content active">
+                <div class="tab-toolbar">
+                    <input type="text" id="node-search" class="form-input search-input" placeholder="Search nodes by name or ID…">
+                    <button class="btn btn-primary btn-sm" id="btn-add-node">
+                        <i data-lucide="plus"></i> Add Node
+                    </button>
+                </div>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table" id="nodes-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Label</th>
+                                <th>X</th>
+                                <th>Y</th>
+                                <th>Floor</th>
+                                <th>Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="nodes-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Edges Tab -->
+            <div id="admin-tab-edges" class="admin-tab-content">
+                <div class="tab-toolbar">
+                    <input type="text" id="edge-search" class="form-input search-input" placeholder="Search edges by node ID…">
+                    <button class="btn btn-primary btn-sm" id="btn-add-edge">
+                        <i data-lucide="plus"></i> Add Edge
+                    </button>
+                </div>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table" id="edges-table">
+                        <thead>
+                            <tr>
+                                <th>From Node</th>
+                                <th>To Node</th>
+                                <th>Weight (m)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="edges-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pending Changes Footer -->
+            <div class="admin-footer">
+                <div class="pending-area">
+                    <span class="pending-label"><i data-lucide="clock"></i> Pending Changes: <span id="pending-count" class="pending-count">0</span></span>
+                    <div id="pending-list" class="pending-list"></div>
+                </div>
+                <div class="admin-footer-actions">
+                    <button class="btn btn-secondary btn-sm" id="btn-discard-changes">
+                        <i data-lucide="rotate-ccw"></i> Discard
+                    </button>
+                    <button class="btn btn-primary btn-sm" id="btn-proceed" disabled>
+                        <i data-lucide="check-circle"></i> Proceed
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== NODE FORM MODAL ===================== -->
+    <div id="node-form-modal" class="modal-overlay hidden">
+        <div class="modal-box form-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="map-pin"></i>
+                    <h2 id="node-form-title">Add Node</h2>
+                </div>
+                <button class="modal-close" id="btn-close-node-form"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="node-edit-original-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Node ID *</label>
+                        <input type="text" id="nf-id" class="form-input" placeholder="e.g. cb_f0_library">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Label (Display Name) *</label>
+                        <input type="text" id="nf-label" class="form-input" placeholder="e.g. Library">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">X Coordinate *</label>
+                        <input type="number" id="nf-x" class="form-input" placeholder="e.g. 725">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Y Coordinate *</label>
+                        <input type="number" id="nf-y" class="form-input" placeholder="e.g. 450">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Floor *</label>
+                        <select id="nf-floor" class="form-input">
+                            <option value="0">Floor 0 (Ground)</option>
+                            <option value="1">Floor 1</option>
+                            <option value="2">Floor 2</option>
+                            <option value="3">Floor 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Type *</label>
+                        <select id="nf-type" class="form-input">
+                            <option value="college_gate">College Gate</option>
+                            <option value="building_entrance">Building Entrance</option>
+                            <option value="entry_gate">Entry Gate</option>
+                            <option value="office_room">Office Room</option>
+                            <option value="classroom">Classroom</option>
+                            <option value="lab">Laboratory</option>
+                            <option value="hall">Hall / Auditorium</option>
+                            <option value="stairs_lift">Stairs / Lift</option>
+                            <option value="junction">Junction</option>
+                            <option value="unknown">Other / Unknown</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="node-form-error" class="login-error hidden"></div>
+                <div class="form-actions">
+                    <button class="btn btn-secondary" id="btn-cancel-node-form">Cancel</button>
+                    <button class="btn btn-primary" id="btn-save-node-form">
+                        <i data-lucide="save"></i> Save Node
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== EDGE FORM MODAL ===================== -->
+    <div id="edge-form-modal" class="modal-overlay hidden">
+        <div class="modal-box form-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="git-fork"></i>
+                    <h2 id="edge-form-title">Add Edge</h2>
+                </div>
+                <button class="modal-close" id="btn-close-edge-form"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="edge-edit-index">
+                <div class="form-group">
+                    <label class="form-label">From Node *</label>
+                    <select id="ef-from" class="form-input"></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">To Node *</label>
+                    <select id="ef-to" class="form-input"></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Weight / Distance (meters) *</label>
+                    <input type="number" id="ef-weight" class="form-input" placeholder="e.g. 25" min="1">
+                </div>
+                <div id="edge-form-error" class="login-error hidden"></div>
+                <div class="form-actions">
+                    <button class="btn btn-secondary" id="btn-cancel-edge-form">Cancel</button>
+                    <button class="btn btn-primary" id="btn-save-edge-form">
+                        <i data-lucide="save"></i> Save Edge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== CONFIRM CHANGES MODAL ===================== -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-box confirm-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="alert-triangle"></i>
+                    <h2>Confirm Changes</h2>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="confirm-subtitle">Review the following changes before applying them to the live map. This action will overwrite the map database.</p>
+                <div id="confirm-changes-list" class="confirm-changes-list"></div>
+                <div class="form-actions">
+                    <button class="btn btn-secondary" id="btn-cancel-confirm">
+                        <i data-lucide="x"></i> Cancel
+                    </button>
+                    <button class="btn btn-danger" id="btn-apply-changes">
+                        <i data-lucide="check"></i> Apply All Changes
+                    </button>
+                </div>
+                <div id="save-status" class="save-status hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== NEW MODALS ===================== -->
+    <!-- About Modal -->
+    <div id="about-modal" class="modal-overlay hidden">
+        <div class="modal-box small-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="info"></i>
+                    <h2>About spotNgo</h2>
+                </div>
+                <button class="modal-close" id="btn-close-about"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body text-body">
+                <p><strong>spotNgo</strong> is a state-of-the-art indoor navigation system designed specifically for the Heritage Institute of Technology campus.</p>
+                <p>Powered by advanced A* pathfinding and an interactive multi-floor vector engine, it provides seamless turn-by-turn routing between classrooms, labs, halls, and gates.</p>
+                <button class="btn btn-secondary btn-full" id="btn-back-about" style="margin-top: 20px;"><i data-lucide="arrow-left"></i> Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal-overlay hidden">
+        <div class="modal-box small-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="help-circle"></i>
+                    <h2>How to Use</h2>
+                </div>
+                <button class="modal-close" id="btn-close-help"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body text-body">
+                <ul class="help-list">
+                    <li><i data-lucide="mouse-pointer-2"></i> <strong>Drag</strong> the map to pan around.</li>
+                    <li><i data-lucide="zoom-in"></i> <strong>Scroll</strong> to zoom in and out.</li>
+                    <li><i data-lucide="mouse-pointer-click"></i> <strong>Double-Click</strong> a room to set it as your Start point.</li>
+                    <li><i data-lucide="mouse-pointer-click"></i> <strong>Right-Click</strong> a room to set it as your Destination.</li>
+                    <li><i data-lucide="layers"></i> <strong>Floor Tabs</strong> automatically change when viewing multi-floor paths.</li>
+                </ul>
+                <button class="btn btn-secondary btn-full" id="btn-back-help" style="margin-top: 20px;"><i data-lucide="arrow-left"></i> Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="history-modal" class="modal-overlay hidden">
+        <div class="modal-box small-box">
+            <div class="modal-header">
+                <div class="modal-title-row">
+                    <i data-lucide="history"></i>
+                    <h2>Search History</h2>
+                </div>
+                <div class="admin-header-actions">
+                    <button class="btn btn-secondary btn-sm" id="btn-clear-history">Clear</button>
+                    <button class="modal-close" id="btn-close-history"><i data-lucide="x"></i></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="history-list" class="history-list">
+                    <p class="empty-msg">No recent searches found.</p>
+                </div>
+                <button class="btn btn-secondary btn-full" id="btn-back-history" style="margin-top: 20px;"><i data-lucide="arrow-left"></i> Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Toast Alert -->
+    <div id="toast-alert" class="toast-alert hidden">
+        <div class="toast-content">
+            <i data-lucide="alert-triangle" class="toast-icon"></i>
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- Custom Script File -->
+    <script src="app.js"></script>
+</body>
+</html>

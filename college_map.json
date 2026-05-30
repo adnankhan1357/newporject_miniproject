@@ -1,0 +1,936 @@
+{
+  "nodes": [
+    {
+      "id": "ext_f0_gate_number_9",
+      "label": "Gate Number 9",
+      "x": 900,
+      "y": -900,
+      "floor": 0,
+      "type": "college_gate"
+    },
+    {
+      "id": "ext_f0_j1",
+      "label": "Junction 1",
+      "x": 930,
+      "y": -900,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "ext_f0_wash_basin",
+      "label": "Wash Basin",
+      "x": 960,
+      "y": -900,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cme_f0_cme_entrance",
+      "label": "CME Entrance",
+      "x": 1275,
+      "y": -900,
+      "floor": 0,
+      "type": "building_entrance"
+    },
+    {
+      "id": "cme_f0_registrar_office",
+      "label": "Registrar Office",
+      "x": 1275,
+      "y": -1020,
+      "floor": 0,
+      "type": "office_room"
+    },
+    {
+      "id": "cme_f0_male_washroom",
+      "label": "Male Washroom (CME)",
+      "x": 1215,
+      "y": -1020,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cme_f0_water_filter",
+      "label": "Water Filter (CME)",
+      "x": 1275,
+      "y": -1050,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cme_f0_lift_stairs",
+      "label": "CME Lift/Stairs",
+      "x": 1350,
+      "y": -1050,
+      "floor": 0,
+      "type": "stairs_lift"
+    },
+    {
+      "id": "cme_f0_iqac",
+      "label": "IQAC",
+      "x": 1275,
+      "y": -1200,
+      "floor": 0,
+      "type": "office_room"
+    },
+    {
+      "id": "cme_f0_tpo_office_placement_cell",
+      "label": "TPO Office/Placement Cell",
+      "x": 1275,
+      "y": -1260,
+      "floor": 0,
+      "type": "office_room"
+    },
+    {
+      "id": "cme_f0_guards_desk",
+      "label": "Guards Desk (CME)",
+      "x": 1335,
+      "y": -1260,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cme_f0_cme_exit",
+      "label": "CME Exit",
+      "x": 1605,
+      "y": -1350,
+      "floor": 0,
+      "type": "building_entrance"
+    },
+    {
+      "id": "cme_f0_cme_006",
+      "label": "CME 006",
+      "x": 1275,
+      "y": -1485,
+      "floor": 0,
+      "type": "classroom"
+    },
+    {
+      "id": "cme_f0_cme_004",
+      "label": "CME 004",
+      "x": 1290,
+      "y": -1485,
+      "floor": 0,
+      "type": "classroom"
+    },
+    {
+      "id": "cme_f0_language_lab",
+      "label": "Language Lab",
+      "x": 1275,
+      "y": -1860,
+      "floor": 0,
+      "type": "lab"
+    },
+    {
+      "id": "cme_f0_fluid_mechanics_lab",
+      "label": "Fluid Mechanics Lab",
+      "x": 1275,
+      "y": -1995,
+      "floor": 0,
+      "type": "lab"
+    },
+    {
+      "id": "cme_f0_cme_008",
+      "label": "CME 008",
+      "x": 1275,
+      "y": -2025,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cme_f0_service_room",
+      "label": "Service Room",
+      "x": 1275,
+      "y": -2175,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cme_f0_female_washroom",
+      "label": "Female Washroom (CME)",
+      "x": 1275,
+      "y": -2205,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cme_f0_stairs",
+      "label": "CME Stairs",
+      "x": 1335,
+      "y": -2175,
+      "floor": 0,
+      "type": "stairs_lift"
+    },
+    {
+      "id": "cme_f0_administrative_office",
+      "label": "Administrative Office",
+      "x": 1515,
+      "y": -2175,
+      "floor": 0,
+      "type": "office_room"
+    },
+    {
+      "id": "ext_f0_j2",
+      "label": "Junction 2",
+      "x": 1725,
+      "y": -900,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "ext_f0_j6",
+      "label": "Junction 6",
+      "x": 1725,
+      "y": -1350,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "ext_f0_j3",
+      "label": "Junction 3",
+      "x": 2175,
+      "y": -900,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "cb_f0_cb_entrance",
+      "label": "CB Entrance",
+      "x": 2175,
+      "y": -1350,
+      "floor": 0,
+      "type": "building_entrance"
+    },
+    {
+      "id": "cb_f0_library",
+      "label": "Library",
+      "x": 2115,
+      "y": -1350,
+      "floor": 0,
+      "type": "hall"
+    },
+    {
+      "id": "cb_f0_placement_hall",
+      "label": "Placement Hall",
+      "x": 2235,
+      "y": -1350,
+      "floor": 0,
+      "type": "hall"
+    },
+    {
+      "id": "cb_f0_entry_gate_1",
+      "label": "CB Entry Gate 1",
+      "x": 2385,
+      "y": -1470,
+      "floor": 0,
+      "type": "entry_gate"
+    },
+    {
+      "id": "cb_f0_entry_gate_2",
+      "label": "CB Entry Gate 2",
+      "x": 2085,
+      "y": -1470,
+      "floor": 0,
+      "type": "entry_gate"
+    },
+    {
+      "id": "cb_f0_executive_hall",
+      "label": "Executive Hall",
+      "x": 2235,
+      "y": -1470,
+      "floor": 0,
+      "type": "hall"
+    },
+    {
+      "id": "cb_f0_male_washroom",
+      "label": "Male Washroom (CB)",
+      "x": 2415,
+      "y": -1470,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cb_f0_female_washroom",
+      "label": "Female Washroom (CB)",
+      "x": 1665,
+      "y": -1470,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "cb_f0_sv_auditorium",
+      "label": "SV Auditorium",
+      "x": 2475,
+      "y": -1470,
+      "floor": 0,
+      "type": "hall"
+    },
+    {
+      "id": "cb_f0_lift_stairs_1",
+      "label": "CB Lift/Stairs 1",
+      "x": 2415,
+      "y": -1410,
+      "floor": 0,
+      "type": "stairs_lift"
+    },
+    {
+      "id": "cb_f0_colonel_sirs_office",
+      "label": "Colonel Sir's Office",
+      "x": 2025,
+      "y": -1470,
+      "floor": 0,
+      "type": "office_room"
+    },
+    {
+      "id": "cb_f0_liftstairs_2",
+      "label": "CB Lift/Stairs 2",
+      "x": 2025,
+      "y": -1410,
+      "floor": 0,
+      "type": "stairs_lift"
+    },
+    {
+      "id": "cb_f0_cb_exit",
+      "label": "CB Exit",
+      "x": 1605,
+      "y": -1470,
+      "floor": 0,
+      "type": "building_entrance"
+    },
+    {
+      "id": "ext_f0_the_heritage_academy_building",
+      "label": "Heritage Academy",
+      "x": 2625,
+      "y": -900,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "ext_f0_sac_ground",
+      "label": "SAC Ground",
+      "x": 3000,
+      "y": -900,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_hostel_road_junction",
+      "label": "Hostel Road Junction",
+      "x": 3000,
+      "y": -750,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "ext_f0_cheap_store",
+      "label": "Cheap Store",
+      "x": 3750,
+      "y": -750,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_30_bigha_ground",
+      "label": "30 Bigha Ground",
+      "x": 3750,
+      "y": -450,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_labours_canteen",
+      "label": "Labours Canteen",
+      "x": 3675,
+      "y": -450,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_college_canteen",
+      "label": "College Canteen",
+      "x": 3750,
+      "y": -225,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ict_f0_ict_entrance",
+      "label": "ICT Entrance",
+      "x": 2625,
+      "y": -1350,
+      "floor": 0,
+      "type": "building_entrance"
+    },
+    {
+      "id": "ict_f0_guards_desk",
+      "label": "Guards Desk (ICT)",
+      "x": 2655,
+      "y": -1350,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ict_f0_liftstairs",
+      "label": "ICT Lift/Stairs",
+      "x": 2700,
+      "y": -1350,
+      "floor": 0,
+      "type": "stairs_lift"
+    },
+    {
+      "id": "ict_f0_ict_003_ieee_electron_devices_society",
+      "label": "ICT 003 IEEE",
+      "x": 2760,
+      "y": -1350,
+      "floor": 0,
+      "type": "office_room"
+    },
+    {
+      "id": "ict_f0_ict_002_microprocessor_and_microcontroller_lab",
+      "label": "Microprocessor Lab",
+      "x": 2760,
+      "y": -1260,
+      "floor": 0,
+      "type": "lab"
+    },
+    {
+      "id": "ict_f0_ict_001_circuit_and_network_lab",
+      "label": "Circuit Lab",
+      "x": 2745,
+      "y": -1260,
+      "floor": 0,
+      "type": "lab"
+    },
+    {
+      "id": "ict_f0_faculty_washroom",
+      "label": "Faculty Washroom (ICT)",
+      "x": 2760,
+      "y": -1470,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ict_f0_ict_004",
+      "label": "ICT 004",
+      "x": 2760,
+      "y": -1545,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ict_f0_ict_009_electrical_and_electronics_measurement_lab",
+      "label": "Electrical Lab",
+      "x": 2745,
+      "y": -1545,
+      "floor": 0,
+      "type": "lab"
+    },
+    {
+      "id": "ict_f0_ict_005_digital_electronics_lab",
+      "label": "Digital Electronics Lab",
+      "x": 2760,
+      "y": -1770,
+      "floor": 0,
+      "type": "lab"
+    },
+    {
+      "id": "ict_f0_ict_008",
+      "label": "ICT 008",
+      "x": 2745,
+      "y": -1770,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ict_f0_male_washroom",
+      "label": "Male Washroom (ICT)",
+      "x": 2760,
+      "y": -1890,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ict_f0_female_washroom",
+      "label": "Female Washroom (ICT)",
+      "x": 2760,
+      "y": -1920,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ict_f0_stairs",
+      "label": "ICT Stairs",
+      "x": 2700,
+      "y": -1920,
+      "floor": 0,
+      "type": "stairs_lift"
+    },
+    {
+      "id": "ext_f0_basketball_court",
+      "label": "Basketball Court",
+      "x": 2175,
+      "y": -675,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_school_cricket_ground",
+      "label": "School Cricket Ground",
+      "x": 2175,
+      "y": -525,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_j5",
+      "label": "Junction 5",
+      "x": 2175,
+      "y": 675,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "ext_f0_under_construction_building",
+      "label": "Under Construction",
+      "x": 930,
+      "y": 0,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_heritage_school_canteen",
+      "label": "Heritage School Canteen",
+      "x": 930,
+      "y": 750,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_j4",
+      "label": "Junction 4",
+      "x": 930,
+      "y": 1350,
+      "floor": 0,
+      "type": "junction"
+    },
+    {
+      "id": "ext_f0_heritage_school_entry_gate",
+      "label": "School Entry Gate",
+      "x": 1230,
+      "y": 1350,
+      "floor": 0,
+      "type": "entry_gate"
+    },
+    {
+      "id": "ext_f0_fee_department",
+      "label": "Fee Department",
+      "x": 1230,
+      "y": 1425,
+      "floor": 0,
+      "type": "office_room"
+    },
+    {
+      "id": "ext_f0_heritage_law_college",
+      "label": "Heritage Law College",
+      "x": 930,
+      "y": 1500,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_punjab_national_bank",
+      "label": "PNB Bank",
+      "x": 930,
+      "y": 2100,
+      "floor": 0,
+      "type": "unknown"
+    },
+    {
+      "id": "ext_f0_gate_number_3",
+      "label": "Gate Number 3",
+      "x": 930,
+      "y": 2550,
+      "floor": 0,
+      "type": "college_gate"
+    },
+    {
+      "id": "ext_f0_atm",
+      "label": "ATM",
+      "x": 780,
+      "y": 2550,
+      "floor": 0,
+      "type": "unknown"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ext_f0_gate_number_9",
+      "to": "ext_f0_j1",
+      "weight": 6
+    },
+    {
+      "from": "ext_f0_j1",
+      "to": "ext_f0_wash_basin",
+      "weight": 6
+    },
+    {
+      "from": "ext_f0_wash_basin",
+      "to": "cme_f0_cme_entrance",
+      "weight": 255
+    },
+    {
+      "from": "cme_f0_cme_entrance",
+      "to": "ext_f0_j2",
+      "weight": 90
+    },
+    {
+      "from": "ext_f0_j2",
+      "to": "ext_f0_j6",
+      "weight": 90
+    },
+    {
+      "from": "ext_f0_j6",
+      "to": "cme_f0_cme_exit",
+      "weight": 24
+    },
+    {
+      "from": "cme_f0_cme_entrance",
+      "to": "cme_f0_registrar_office",
+      "weight": 24
+    },
+    {
+      "from": "cme_f0_registrar_office",
+      "to": "cme_f0_male_washroom",
+      "weight": 12
+    },
+    {
+      "from": "cme_f0_registrar_office",
+      "to": "cme_f0_water_filter",
+      "weight": 6
+    },
+    {
+      "from": "cme_f0_water_filter",
+      "to": "cme_f0_lift_stairs",
+      "weight": 15
+    },
+    {
+      "from": "cme_f0_water_filter",
+      "to": "cme_f0_iqac",
+      "weight": 30
+    },
+    {
+      "from": "cme_f0_iqac",
+      "to": "cme_f0_tpo_office_placement_cell",
+      "weight": 12
+    },
+    {
+      "from": "cme_f0_tpo_office_placement_cell",
+      "to": "cme_f0_guards_desk",
+      "weight": 12
+    },
+    {
+      "from": "cme_f0_guards_desk",
+      "to": "cme_f0_cme_exit",
+      "weight": 30
+    },
+    {
+      "from": "cme_f0_tpo_office_placement_cell",
+      "to": "cme_f0_cme_006",
+      "weight": 45
+    },
+    {
+      "from": "cme_f0_cme_006",
+      "to": "cme_f0_cme_004",
+      "weight": 3
+    },
+    {
+      "from": "cme_f0_cme_006",
+      "to": "cme_f0_language_lab",
+      "weight": 75
+    },
+    {
+      "from": "cme_f0_language_lab",
+      "to": "cme_f0_fluid_mechanics_lab",
+      "weight": 9
+    },
+    {
+      "from": "cme_f0_fluid_mechanics_lab",
+      "to": "cme_f0_cme_008",
+      "weight": 6
+    },
+    {
+      "from": "cme_f0_cme_008",
+      "to": "cme_f0_service_room",
+      "weight": 24
+    },
+    {
+      "from": "cme_f0_service_room",
+      "to": "cme_f0_female_washroom",
+      "weight": 6
+    },
+    {
+      "from": "cme_f0_service_room",
+      "to": "cme_f0_stairs",
+      "weight": 12
+    },
+    {
+      "from": "cme_f0_stairs",
+      "to": "cme_f0_administrative_office",
+      "weight": 36
+    },
+    {
+      "from": "ext_f0_j2",
+      "to": "ext_f0_j3",
+      "weight": 90
+    },
+    {
+      "from": "ext_f0_j3",
+      "to": "cb_f0_cb_entrance",
+      "weight": 90
+    },
+    {
+      "from": "cb_f0_cb_entrance",
+      "to": "cb_f0_library",
+      "weight": 12
+    },
+    {
+      "from": "cb_f0_library",
+      "to": "ext_f0_j6",
+      "weight": 78
+    },
+    {
+      "from": "cb_f0_cb_entrance",
+      "to": "cb_f0_placement_hall",
+      "weight": 12
+    },
+    {
+      "from": "cb_f0_cb_entrance",
+      "to": "cb_f0_entry_gate_1",
+      "weight": 48
+    },
+    {
+      "from": "cb_f0_cb_entrance",
+      "to": "cb_f0_entry_gate_2",
+      "weight": 48
+    },
+    {
+      "from": "cb_f0_entry_gate_1",
+      "to": "cb_f0_male_washroom",
+      "weight": 6
+    },
+    {
+      "from": "cb_f0_male_washroom",
+      "to": "cb_f0_lift_stairs_1",
+      "weight": 12
+    },
+    {
+      "from": "cb_f0_male_washroom",
+      "to": "cb_f0_sv_auditorium",
+      "weight": 12
+    },
+    {
+      "from": "cb_f0_entry_gate_1",
+      "to": "cb_f0_executive_hall",
+      "weight": 30
+    },
+    {
+      "from": "cb_f0_executive_hall",
+      "to": "cb_f0_entry_gate_2",
+      "weight": 30
+    },
+    {
+      "from": "cb_f0_entry_gate_2",
+      "to": "cb_f0_colonel_sirs_office",
+      "weight": 12
+    },
+    {
+      "from": "cb_f0_colonel_sirs_office",
+      "to": "cb_f0_liftstairs_2",
+      "weight": 12
+    },
+    {
+      "from": "cb_f0_colonel_sirs_office",
+      "to": "cb_f0_female_washroom",
+      "weight": 72
+    },
+    {
+      "from": "cb_f0_female_washroom",
+      "to": "cb_f0_cb_exit",
+      "weight": 12
+    },
+    {
+      "from": "ext_f0_j3",
+      "to": "ext_f0_the_heritage_academy_building",
+      "weight": 90
+    },
+    {
+      "from": "cb_f0_placement_hall",
+      "to": "ict_f0_ict_entrance",
+      "weight": 78
+    },
+    {
+      "from": "ext_f0_the_heritage_academy_building",
+      "to": "ext_f0_sac_ground",
+      "weight": 75
+    },
+    {
+      "from": "ext_f0_sac_ground",
+      "to": "ext_f0_hostel_road_junction",
+      "weight": 30
+    },
+    {
+      "from": "ext_f0_hostel_road_junction",
+      "to": "ext_f0_cheap_store",
+      "weight": 150
+    },
+    {
+      "from": "ext_f0_cheap_store",
+      "to": "ext_f0_30_bigha_ground",
+      "weight": 60
+    },
+    {
+      "from": "ext_f0_30_bigha_ground",
+      "to": "ext_f0_labours_canteen",
+      "weight": 15
+    },
+    {
+      "from": "ext_f0_30_bigha_ground",
+      "to": "ext_f0_college_canteen",
+      "weight": 45
+    },
+    {
+      "from": "ext_f0_the_heritage_academy_building",
+      "to": "ict_f0_ict_entrance",
+      "weight": 90
+    },
+    {
+      "from": "ict_f0_ict_entrance",
+      "to": "ict_f0_guards_desk",
+      "weight": 6
+    },
+    {
+      "from": "ict_f0_guards_desk",
+      "to": "ict_f0_liftstairs",
+      "weight": 9
+    },
+    {
+      "from": "ict_f0_liftstairs",
+      "to": "ict_f0_ict_003_ieee_electron_devices_society",
+      "weight": 12
+    },
+    {
+      "from": "ict_f0_ict_003_ieee_electron_devices_society",
+      "to": "ict_f0_ict_002_microprocessor_and_microcontroller_lab",
+      "weight": 18
+    },
+    {
+      "from": "ict_f0_ict_002_microprocessor_and_microcontroller_lab",
+      "to": "ict_f0_ict_001_circuit_and_network_lab",
+      "weight": 3
+    },
+    {
+      "from": "ict_f0_ict_003_ieee_electron_devices_society",
+      "to": "ict_f0_faculty_washroom",
+      "weight": 24
+    },
+    {
+      "from": "ict_f0_faculty_washroom",
+      "to": "ict_f0_ict_004",
+      "weight": 15
+    },
+    {
+      "from": "ict_f0_ict_004",
+      "to": "ict_f0_ict_009_electrical_and_electronics_measurement_lab",
+      "weight": 3
+    },
+    {
+      "from": "ict_f0_ict_004",
+      "to": "ict_f0_ict_005_digital_electronics_lab",
+      "weight": 45
+    },
+    {
+      "from": "ict_f0_ict_005_digital_electronics_lab",
+      "to": "ict_f0_ict_008",
+      "weight": 3
+    },
+    {
+      "from": "ict_f0_ict_005_digital_electronics_lab",
+      "to": "ict_f0_male_washroom",
+      "weight": 24
+    },
+    {
+      "from": "ict_f0_male_washroom",
+      "to": "ict_f0_female_washroom",
+      "weight": 6
+    },
+    {
+      "from": "ict_f0_female_washroom",
+      "to": "ict_f0_stairs",
+      "weight": 12
+    },
+    {
+      "from": "ext_f0_under_construction_building",
+      "to": "ext_f0_heritage_school_canteen",
+      "weight": 150
+    },
+    {
+      "from": "ext_f0_heritage_school_canteen",
+      "to": "ext_f0_j4",
+      "weight": 120
+    },
+    {
+      "from": "ext_f0_j1",
+      "to": "ext_f0_under_construction_building",
+      "weight": 240
+    },
+    {
+      "from": "ext_f0_j4",
+      "to": "ext_f0_heritage_school_entry_gate",
+      "weight": 60
+    },
+    {
+      "from": "ext_f0_heritage_school_entry_gate",
+      "to": "ext_f0_fee_department",
+      "weight": 15
+    },
+    {
+      "from": "ext_f0_j4",
+      "to": "ext_f0_heritage_law_college",
+      "weight": 30
+    },
+    {
+      "from": "ext_f0_heritage_law_college",
+      "to": "ext_f0_punjab_national_bank",
+      "weight": 120
+    },
+    {
+      "from": "ext_f0_punjab_national_bank",
+      "to": "ext_f0_gate_number_3",
+      "weight": 90
+    },
+    {
+      "from": "ext_f0_gate_number_3",
+      "to": "ext_f0_atm",
+      "weight": 30
+    },
+    {
+      "from": "ext_f0_j3",
+      "to": "ext_f0_basketball_court",
+      "weight": 45
+    },
+    {
+      "from": "ext_f0_basketball_court",
+      "to": "ext_f0_school_cricket_ground",
+      "weight": 30
+    },
+    {
+      "from": "ext_f0_school_cricket_ground",
+      "to": "ext_f0_j5",
+      "weight": 240
+    },
+    {
+      "from": "ext_f0_j5",
+      "to": "ext_f0_gate_number_3",
+      "weight": 240
+    }
+  ]
+}
