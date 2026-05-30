@@ -30,6 +30,7 @@ let startDragY = 0;
 let hoveredNodeId = null;
 let animationFrameId = null;
 let gridEnabled = true;
+let isLightTheme = false;
 
 // Backend Connection Endpoint
 const API_BASE_URL = "http://localhost:5000/api";
@@ -187,8 +188,46 @@ const FALLBACK_MAP_DATA = {
   ]
 };
 
+// --- Theme Handling System ---
+function initTheme() {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    if (savedTheme === "light") {
+        document.body.classList.add("light-theme");
+        isLightTheme = true;
+    } else {
+        document.body.classList.remove("light-theme");
+        isLightTheme = false;
+    }
+    updateThemeUI();
+}
+
+function toggleTheme() {
+    if (document.body.classList.contains("light-theme")) {
+        document.body.classList.remove("light-theme");
+        isLightTheme = false;
+        localStorage.setItem("theme", "dark");
+    } else {
+        document.body.classList.add("light-theme");
+        isLightTheme = true;
+        localStorage.setItem("theme", "light");
+    }
+    updateThemeUI();
+    drawMap();
+}
+
+function updateThemeUI() {
+    const landingToggle = document.getElementById("btn-theme-toggle-landing");
+    if (landingToggle) {
+        const textSpan = landingToggle.querySelector(".theme-text");
+        if (textSpan) {
+            textSpan.innerText = isLightTheme ? "Dark Mode" : "Light Mode";
+        }
+    }
+}
+
 // --- Initialization ---
 document.addEventListener("DOMContentLoaded", () => {
+    initTheme();
     initCanvas();
     fetchMapData();
     setupEventHandlers();
@@ -236,6 +275,16 @@ function setupEventHandlers() {
         document.getElementById("app-container").classList.add("hidden");
         document.getElementById("landing-page").classList.remove("hidden");
     });
+
+    // Theme Toggle Event Listeners
+    const themeLandingBtn = document.getElementById("btn-theme-toggle-landing");
+    if (themeLandingBtn) {
+        themeLandingBtn.addEventListener("click", toggleTheme);
+    }
+    const themeAppBtn = document.getElementById("btn-theme-toggle-app");
+    if (themeAppBtn) {
+        themeAppBtn.addEventListener("click", toggleTheme);
+    }
 
     // Landing Page Navigation Scrolling transitions
     document.getElementById("btn-about").addEventListener("click", () => {
@@ -869,7 +918,7 @@ function drawMap() {
 
 // Background Blueprint Grid
 function drawBlueprintGrid() {
-    ctx.strokeStyle = "rgba(0, 240, 255, 0.02)";
+    ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.04)" : "rgba(99, 102, 241, 0.03)";
     ctx.lineWidth = 1;
     
     const gridSpacing = 50; // Grid cells in world space
@@ -906,9 +955,24 @@ function drawBlueprintGrid() {
 function drawBuildingOutlines() {
     // Define the buildings and their node prefixes
     const buildings = [
-        { code: "cme_", name: "CME BUILDING (Civil & Mech)", color: "rgba(0, 240, 255, 0.02)", border: "rgba(0, 240, 255, 0.12)" },
-        { code: "cb_", name: "CB BUILDING (Central Block)", color: "rgba(0, 118, 255, 0.02)", border: "rgba(0, 118, 255, 0.15)" },
-        { code: "ict_", name: "ICT BUILDING (Info Tech)", color: "rgba(189, 0, 255, 0.02)", border: "rgba(189, 0, 255, 0.12)" }
+        { 
+            code: "cme_", 
+            name: "CME BUILDING (Civil & Mech)", 
+            color: isLightTheme ? "rgba(79, 70, 229, 0.03)" : "rgba(99, 102, 241, 0.02)", 
+            border: isLightTheme ? "rgba(79, 70, 229, 0.12)" : "rgba(99, 102, 241, 0.12)" 
+        },
+        { 
+            code: "cb_", 
+            name: "CB BUILDING (Central Block)", 
+            color: isLightTheme ? "rgba(37, 99, 235, 0.03)" : "rgba(59, 130, 246, 0.02)", 
+            border: isLightTheme ? "rgba(37, 99, 235, 0.15)" : "rgba(59, 130, 246, 0.15)" 
+        },
+        { 
+            code: "ict_", 
+            name: "ICT BUILDING (Info Tech)", 
+            color: isLightTheme ? "rgba(124, 58, 237, 0.03)" : "rgba(139, 92, 246, 0.02)", 
+            border: isLightTheme ? "rgba(124, 58, 237, 0.12)" : "rgba(139, 92, 246, 0.12)" 
+        }
     ];
 
     buildings.forEach(b => {
@@ -951,7 +1015,7 @@ function drawBuildingOutlines() {
 
         // Draw building name banner in block background
         ctx.font = `bold ${Math.max(10, Math.round(13 * scale))}px var(--font-heading)`;
-        ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+        ctx.fillStyle = isLightTheme ? "rgba(15, 23, 42, 0.18)" : "rgba(255, 255, 255, 0.15)";
         ctx.textAlign = "left";
         ctx.fillText(b.name, screenTopLeft.x + 15, screenTopLeft.y + 25);
     });
@@ -977,7 +1041,9 @@ function drawEdges() {
             ctx.moveTo(sU.x, sU.y);
             ctx.lineTo(sV.x, sV.y);
             ctx.lineWidth = Math.max(14, 24 * scale);
-            ctx.strokeStyle = isOutdoor ? "rgba(100, 110, 130, 0.6)" : "rgba(0, 150, 255, 0.4)";
+            ctx.strokeStyle = isOutdoor 
+                ? (isLightTheme ? "rgba(148, 163, 184, 0.4)" : "rgba(100, 110, 130, 0.6)") 
+                : (isLightTheme ? "rgba(79, 70, 229, 0.15)" : "rgba(99, 102, 241, 0.3)");
             ctx.stroke();
 
             // 2. Draw main road surface
@@ -985,7 +1051,9 @@ function drawEdges() {
             ctx.moveTo(sU.x, sU.y);
             ctx.lineTo(sV.x, sV.y);
             ctx.lineWidth = Math.max(10, 18 * scale);
-            ctx.strokeStyle = isOutdoor ? "rgba(45, 50, 60, 1)" : "rgba(20, 30, 45, 1)";
+            ctx.strokeStyle = isOutdoor 
+                ? (isLightTheme ? "rgba(226, 232, 240, 1)" : "rgba(45, 50, 60, 1)") 
+                : (isLightTheme ? "rgba(241, 245, 249, 1)" : "rgba(15, 23, 42, 1)");
             ctx.stroke();
             
             // 3. Draw dashed lane division in the middle
@@ -994,7 +1062,7 @@ function drawEdges() {
             ctx.lineTo(sV.x, sV.y);
             ctx.lineWidth = Math.max(2, 3 * scale);
             ctx.setLineDash([10 * scale, 10 * scale]);
-            ctx.strokeStyle = "rgba(255, 215, 0, 0.85)"; // High visibility yellow dash
+            ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.4)" : "rgba(255, 215, 0, 0.85)"; // Dash line
             ctx.stroke();
             ctx.setLineDash([]); // reset line dash immediately
         }
@@ -1008,9 +1076,9 @@ function drawShortestPathLaser() {
     // 1st Pass: Large glowing background laser blur
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.strokeStyle = "rgba(0, 240, 255, 0.25)";
+    ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.25)" : "rgba(99, 102, 241, 0.25)";
     ctx.lineWidth = Math.max(8, 12 * scale);
-    ctx.shadowColor = "#00f0ff";
+    ctx.shadowColor = isLightTheme ? "#4f46e5" : "#6366f1";
     ctx.shadowBlur = 15;
     
     ctx.beginPath();
@@ -1036,7 +1104,7 @@ function drawShortestPathLaser() {
     // Reset shadow context immediately to keep renders fast
     ctx.shadowBlur = 0;
     
-    // 2nd Pass: Inner high-intensity white/cyan path core
+    // 2nd Pass: Inner high-intensity core
     ctx.strokeStyle = "#fff";
     ctx.lineWidth = Math.max(2, 3 * scale);
     ctx.beginPath();
@@ -1090,7 +1158,7 @@ function drawAnimatedFlowParticles() {
             ctx.beginPath();
             ctx.arc(px, py, Math.max(4, 5 * scale), 0, Math.PI * 2);
             ctx.fillStyle = "#fff";
-            ctx.shadowColor = "#00f0ff";
+            ctx.shadowColor = isLightTheme ? "#4f46e5" : "#6366f1";
             ctx.shadowBlur = 10;
             ctx.fill();
             ctx.shadowBlur = 0; // reset
@@ -1123,9 +1191,9 @@ function drawNodes() {
             if (isHovered) {
                 ctx.beginPath();
                 ctx.arc(sPos.x, sPos.y, Math.max(12, 16 * scale), 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(0, 240, 255, 0.12)";
+                ctx.fillStyle = isLightTheme ? "rgba(79, 70, 229, 0.1)" : "rgba(99, 102, 241, 0.12)";
                 ctx.fill();
-                ctx.strokeStyle = "rgba(0, 240, 255, 0.4)";
+                ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.4)" : "rgba(99, 102, 241, 0.4)";
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }
@@ -1135,14 +1203,14 @@ function drawNodes() {
                 const pulseRadius = Math.max(12, 16 * scale) + Math.sin(time * 8) * 3;
                 ctx.beginPath();
                 ctx.arc(sPos.x, sPos.y, pulseRadius, 0, Math.PI * 2);
-                ctx.strokeStyle = "rgba(57, 255, 20, 0.35)";
+                ctx.strokeStyle = "rgba(16, 185, 129, 0.45)";
                 ctx.lineWidth = 2;
                 ctx.stroke();
             } else if (isEnd) {
                 const pulseRadius = Math.max(12, 16 * scale) + Math.sin(time * 8) * 3;
                 ctx.beginPath();
                 ctx.arc(sPos.x, sPos.y, pulseRadius, 0, Math.PI * 2);
-                ctx.strokeStyle = "rgba(255, 0, 127, 0.35)";
+                ctx.strokeStyle = "rgba(236, 72, 153, 0.45)";
                 ctx.lineWidth = 2;
                 ctx.stroke();
             }
@@ -1153,14 +1221,14 @@ function drawNodes() {
             ctx.arc(sPos.x, sPos.y, radius, 0, Math.PI * 2);
             
             if (isStart) {
-                ctx.fillStyle = "#39ff14";
+                ctx.fillStyle = isLightTheme ? "#059669" : "#10b981";
                 ctx.strokeStyle = "#fff";
             } else if (isEnd) {
-                ctx.fillStyle = "#ff007f";
+                ctx.fillStyle = isLightTheme ? "#db2777" : "#ec4899";
                 ctx.strokeStyle = "#fff";
             } else {
                 ctx.fillStyle = colors.fill;
-                ctx.strokeStyle = isPathNode ? "#00f0ff" : colors.border;
+                ctx.strokeStyle = isPathNode ? (isLightTheme ? "#4f46e5" : "#6366f1") : colors.border;
             }
             
             ctx.lineWidth = isPathNode || isHovered ? 2 : 1;
@@ -1170,9 +1238,9 @@ function drawNodes() {
             // --- PERMANENT ROOM LABELS FOR NORMAL USER READABILITY ---
             // Hide for abstract junctions/unknown utility points to prevent clutter
             if (node.type !== "junction" && node.type !== "unknown" && scale > 0.45) {
-                ctx.shadowColor = "rgba(0, 0, 0, 0.9)";
-                ctx.shadowBlur = 4;
-                ctx.fillStyle = isStart || isEnd ? "#fff" : "rgba(255, 255, 255, 0.85)";
+                ctx.shadowColor = isLightTheme ? "rgba(255, 255, 255, 0.8)" : "rgba(0, 0, 0, 0.9)";
+                ctx.shadowBlur = isLightTheme ? 2 : 4;
+                ctx.fillStyle = isStart || isEnd ? (isLightTheme ? "#0f172a" : "#fff") : (isLightTheme ? "#0f172a" : "rgba(255, 255, 255, 0.85)");
                 ctx.font = `${isStart || isEnd ? 'bold' : '500'} ${Math.max(9, Math.round(10 * scale))}px var(--font-body)`;
                 ctx.textAlign = "left";
                 
@@ -1201,9 +1269,9 @@ function drawNodes() {
                 const pulseRadius = Math.max(8, 10 * scale) + Math.sin(time * 5) * 2;
                 ctx.beginPath();
                 ctx.arc(sPos.x, sPos.y, pulseRadius, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(255, 157, 0, 0.15)";
+                ctx.fillStyle = isLightTheme ? "rgba(234, 88, 12, 0.12)" : "rgba(255, 157, 0, 0.15)";
                 ctx.fill();
-                ctx.strokeStyle = "rgba(255, 157, 0, 0.6)";
+                ctx.strokeStyle = isLightTheme ? "rgba(234, 88, 12, 0.5)" : "rgba(255, 157, 0, 0.6)";
                 ctx.lineWidth = 1.5;
                 ctx.stroke();
                 
@@ -1219,27 +1287,52 @@ function drawNodes() {
 
 // Categorized node theme palette getter
 function getNodeColors(type) {
-    switch (type) {
-        case "college_gate":
-            return { fill: "#ffd700", border: "#fff" }; // Gold
-        case "building_entrance":
-        case "entry_gate":
-            return { fill: "#39ff14", border: "#fff" }; // Neon Green
-        case "office_room":
-            return { fill: "#00f0ff", border: "rgba(0, 240, 255, 0.5)" }; // Cyber Cyan
-        case "classroom":
-            return { fill: "#bd00ff", border: "rgba(189, 0, 255, 0.5)" }; // Violet
-        case "lab":
-            return { fill: "#ff00ea", border: "rgba(255, 0, 234, 0.5)" }; // Magenta
-        case "stairs_lift":
-        case "stairs":
-            return { fill: "#ff9d00", border: "#fff" }; // Stair Warning Orange
-        case "hall":
-            return { fill: "#0076ff", border: "rgba(0, 118, 255, 0.5)" }; // Intense Blue
-        case "junction":
-            return { fill: "#4e5e6a", border: "rgba(78, 94, 106, 0.4)" }; // Slate Gray
-        default:
-            return { fill: "#2c3b47", border: "#4e5e6a" }; // Muted Slate
+    if (isLightTheme) {
+        switch (type) {
+            case "college_gate":
+                return { fill: "#ca8a04", border: "#fff" }; // Amber/Gold
+            case "building_entrance":
+            case "entry_gate":
+                return { fill: "#059669", border: "#fff" }; // Emerald
+            case "office_room":
+                return { fill: "#06b6d4", border: "rgba(6, 182, 212, 0.5)" }; // Cyber Cyan
+            case "classroom":
+                return { fill: "#a855f7", border: "rgba(168, 85, 247, 0.5)" }; // Violet
+            case "lab":
+                return { fill: "#d946ef", border: "rgba(217, 70, 239, 0.5)" }; // Magenta
+            case "stairs_lift":
+            case "stairs":
+                return { fill: "#ea580c", border: "#fff" }; // Orange
+            case "hall":
+                return { fill: "#2563eb", border: "rgba(37, 99, 235, 0.5)" }; // Intense Blue
+            case "junction":
+                return { fill: "#cbd5e1", border: "rgba(203, 213, 225, 0.4)" }; // Slate Light
+            default:
+                return { fill: "#cbd5e1", border: "#94a3b8" };
+        }
+    } else {
+        switch (type) {
+            case "college_gate":
+                return { fill: "#ffd700", border: "#fff" }; // Gold
+            case "building_entrance":
+            case "entry_gate":
+                return { fill: "#10b981", border: "#fff" }; // Emerald Green
+            case "office_room":
+                return { fill: "#00f0ff", border: "rgba(0, 240, 255, 0.5)" }; // Cyber Cyan
+            case "classroom":
+                return { fill: "#8b5cf6", border: "rgba(139, 92, 246, 0.5)" }; // Violet
+            case "lab":
+                return { fill: "#ff00ea", border: "rgba(255, 0, 234, 0.5)" }; // Magenta
+            case "stairs_lift":
+            case "stairs":
+                return { fill: "#ff9d00", border: "#fff" }; // Stair Warning Orange
+            case "hall":
+                return { fill: "#0076ff", border: "rgba(0, 118, 255, 0.5)" }; // Intense Blue
+            case "junction":
+                return { fill: "#4e5e6a", border: "rgba(78, 94, 106, 0.4)" }; // Slate Gray
+            default:
+                return { fill: "#2c3b47", border: "#4e5e6a" }; // Muted Slate
+        }
     }
 }
 
@@ -1254,7 +1347,7 @@ function drawCompassAndScale() {
     const barWidth = meterUnits * scale;
     
     if (barWidth > 15 && barWidth < canvas.width * 0.5) {
-        ctx.strokeStyle = "rgba(0, 240, 255, 0.5)";
+        ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.5)" : "rgba(99, 102, 241, 0.5)";
         ctx.lineWidth = 1.5;
         
         ctx.beginPath();
@@ -1271,7 +1364,7 @@ function drawCompassAndScale() {
         
         // Scale label
         ctx.font = "500 10px var(--font-mono)";
-        ctx.fillStyle = "rgba(0, 240, 255, 0.7)";
+        ctx.fillStyle = isLightTheme ? "rgba(79, 70, 229, 0.7)" : "rgba(99, 102, 241, 0.7)";
         ctx.textAlign = "left";
         ctx.fillText(`${meterUnits} meters (Map Scale)`, startX, startY - 10);
     }
@@ -1284,7 +1377,7 @@ function drawCompassAndScale() {
     // Draw compass outer HUD circle ring
     ctx.beginPath();
     ctx.arc(compassX, compassY, compassR, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(0, 240, 255, 0.2)";
+    ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.2)" : "rgba(99, 102, 241, 0.2)";
     ctx.lineWidth = 1;
     ctx.stroke();
     
@@ -1294,7 +1387,7 @@ function drawCompassAndScale() {
     ctx.lineTo(compassX + compassR + 4, compassY);
     ctx.moveTo(compassX, compassY - compassR - 4);
     ctx.lineTo(compassX, compassY + compassR + 4);
-    ctx.strokeStyle = "rgba(0, 240, 255, 0.1)";
+    ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.1)" : "rgba(99, 102, 241, 0.1)";
     ctx.stroke();
     
     // Compass Needle (North indicator)
@@ -1303,7 +1396,7 @@ function drawCompassAndScale() {
     ctx.lineTo(compassX - 5, compassY + 4); // left
     ctx.lineTo(compassX, compassY); // center
     ctx.closePath();
-    ctx.fillStyle = "rgba(255, 0, 127, 0.75)"; // glowing pink north tip
+    ctx.fillStyle = "rgba(236, 72, 153, 0.75)"; // glowing north tip
     ctx.fill();
     
     ctx.beginPath();
@@ -1311,12 +1404,12 @@ function drawCompassAndScale() {
     ctx.lineTo(compassX + 5, compassY + 4); // right
     ctx.lineTo(compassX, compassY); // center
     ctx.closePath();
-    ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
+    ctx.fillStyle = isLightTheme ? "rgba(15, 23, 42, 0.75)" : "rgba(255, 255, 255, 0.75)";
     ctx.fill();
     
     // Compass labels
     ctx.font = "bold 9px var(--font-heading)";
-    ctx.fillStyle = "rgba(255, 0, 127, 0.9)";
+    ctx.fillStyle = isLightTheme ? "rgba(79, 70, 229, 0.9)" : "rgba(236, 72, 153, 0.9)";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText("N", compassX, compassY - compassR - 10);
@@ -1347,8 +1440,8 @@ function drawHoverTooltip() {
     // Draw rounded toolip base
     ctx.beginPath();
     ctx.roundRect(tx, ty, width, height, 5);
-    ctx.fillStyle = "rgba(10, 14, 23, 0.9)";
-    ctx.strokeStyle = "rgba(0, 240, 255, 0.4)";
+    ctx.fillStyle = isLightTheme ? "rgba(255, 255, 255, 0.95)" : "rgba(10, 14, 23, 0.9)";
+    ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.4)" : "rgba(99, 102, 241, 0.4)";
     ctx.lineWidth = 1;
     ctx.fill();
     ctx.stroke();
@@ -1359,12 +1452,12 @@ function drawHoverTooltip() {
     ctx.lineTo(sPos.x, ty + height + 4);
     ctx.lineTo(sPos.x + 4, ty + height);
     ctx.closePath();
-    ctx.fillStyle = "rgba(10, 14, 23, 0.9)";
-    ctx.strokeStyle = "rgba(0, 240, 255, 0.4)";
+    ctx.fillStyle = isLightTheme ? "rgba(255, 255, 255, 0.95)" : "rgba(10, 14, 23, 0.9)";
+    ctx.strokeStyle = isLightTheme ? "rgba(79, 70, 229, 0.4)" : "rgba(99, 102, 241, 0.4)";
     ctx.fill();
     
     // Draw text values
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = isLightTheme ? "#0f172a" : "#fff";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(text, sPos.x, ty + height / 2);

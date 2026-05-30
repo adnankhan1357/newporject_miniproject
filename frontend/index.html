@@ -28,6 +28,11 @@
                     <span class="brand-text">spotNgo</span>
                 </div>
                 <div class="nav-links">
+                    <button class="nav-btn theme-toggle-btn" id="btn-theme-toggle-landing" title="Toggle Theme">
+                        <i data-lucide="sun" class="theme-icon-light"></i>
+                        <i data-lucide="moon" class="theme-icon-dark"></i>
+                        <span class="theme-text">Light Mode</span>
+                    </button>
                     <button class="nav-btn" id="btn-about"><i data-lucide="info"></i> About</button>
                     <button class="nav-btn" id="btn-history"><i data-lucide="history"></i> Search History</button>
                     <button class="nav-btn" id="btn-help"><i data-lucide="help-circle"></i> Help</button>
@@ -188,9 +193,15 @@
                         <span class="subtitle">Indoor Campus Navigator</span>
                     </div>
                 </div>
-                <div class="status-indicator" id="connection-status">
-                    <span class="status-dot pulsing"></span>
-                    <span class="status-text">Connecting...</span>
+                <div style="display: flex; gap: 8px; align-items: center; width: 100%;">
+                    <div class="status-indicator" id="connection-status" style="flex: 1;">
+                        <span class="status-dot pulsing"></span>
+                        <span class="status-text">Connecting...</span>
+                    </div>
+                    <button class="control-btn theme-toggle-btn" id="btn-theme-toggle-app" title="Toggle Theme" style="width: 32px; height: 32px; border-radius: 8px; padding: 0;">
+                        <i data-lucide="sun" class="theme-icon-light"></i>
+                        <i data-lucide="moon" class="theme-icon-dark"></i>
+                    </button>
                 </div>
             </header>
 
